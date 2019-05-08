@@ -1,0 +1,28 @@
+{
+  "name": "cordova-plugin-zenweex",
+  "version": "0.1.2",
+  "description": "A cordova plugin to inject weex, so you could call weex.requireModule in js",
+  "cordova": {
+    "id": "cordova-plugin-zenweex",
+    "platforms": [
+      "ios",
+      "android"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zencodex/cordova-plugin-zenweex.git"
+  },
+  "keywords": [
+    "ecosystem:cordova",
+    "cordova-ios",
+    "cordova-android"
+  ],
+  "author": "扣丁禅师",
+  "email": "v@yinqisen.cn",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zencodex/cordova-plugin-zenweex/issues"
+  },
+  "homepage": "https://github.com/zencodex/cordova-plugin-zenweex#readme"
+}
