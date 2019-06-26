@@ -2,10 +2,12 @@ package com.alibaba.weex;
 
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import capacitor.android.plugins.R;
 import android.util.Log;
+import android.content.pm.ActivityInfo;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -20,6 +22,7 @@ import com.taobao.weex.IWXRenderListener;
 import com.taobao.weex.WXSDKInstance;
 import com.taobao.weex.common.WXRenderStrategy;
 import com.taobao.weex.utils.WXFileUtils;
+import com.taobao.weex.RenderContainer;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,17 +36,21 @@ import android.content.Intent;
 public class WXPageActivity extends AppCompatActivity implements IWXRenderListener {
 
     protected WXSDKInstance mWXSDKInstance;
+    private ViewGroup mContainer;
     private boolean firstCreate;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wxpage);
+        mContainer = (ViewGroup) findViewById(R.id.container);
 
 //        actBinding = DataBindingUtil.setContentView(WXPageActivity.this, R.layout.activity_wxpage);
 //        actBinding.loading.setVisibility(View.VISIBLE);
 
         mWXSDKInstance = new WXSDKInstance(this);
+        RenderContainer renderContainer = new RenderContainer(this);
+        mWXSDKInstance.setRenderContainer(renderContainer);
         mWXSDKInstance.registerRenderListener(this);
 
         Intent intent = this.getIntent();
@@ -56,7 +63,14 @@ public class WXPageActivity extends AppCompatActivity implements IWXRenderListen
                 JSONObject argObj = jsonArray.getJSONObject(0);
                 JSONObject inArgObj = argObj.optJSONObject("args");
                 boolean animated = argObj.optBoolean("animated", true);
+
                 String orientation = argObj.optString("orientation", "portrait");
+                if ("landscape".equals(orientation)) {
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+                } else {
+                    setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+                }
+
                 options = this.toMap(inArgObj);
             } catch (JSONException e) {
                 Log.e(this.getClass().getSimpleName(), e.toString());
@@ -121,10 +135,11 @@ public class WXPageActivity extends AppCompatActivity implements IWXRenderListen
 //            actBinding.container.removeAllViews();
 //        }
 //        actBinding.container.addView(view);
-        if (view == null) {
-            return;
+
+        if(view.getParent() == null) {
+            mContainer.addView(view);
         }
-        setContentView(view);
+        mContainer.requestLayout();
     }
 
     @Override
@@ -184,6 +199,7 @@ public class WXPageActivity extends AppCompatActivity implements IWXRenderListen
     @Override
     protected void onDestroy() {
         super.onDestroy();
+        mContainer = null;
         if (mWXSDKInstance != null) {
             mWXSDKInstance.onActivityDestroy();
         }

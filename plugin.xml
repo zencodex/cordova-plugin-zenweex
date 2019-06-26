@@ -48,16 +48,6 @@
 		<source-file src="src/android/res/layout/activity_wxpage.xml" target-dir="res/layout" />
 		<source-file src="src/android/ZenWeex.java" target-dir="src/cordova/plugin" />
 		<source-file src="src/android/com/alibaba/weex/WXPageActivity.java" target-dir="src/com/alibaba/weex" />
-
-		<!-- <source-file src="src/android/com/alibaba/weex/constants/Constants.java" target-dir="src/com/alibaba/weex/constants" />
-		<source-file src="src/android/com/alibaba/weex/https/HotRefreshManager.java" target-dir="src/com/alibaba/weex/https" />
-		<source-file src="src/android/com/alibaba/weex/https/WXHttpManager.java" target-dir="src/com/alibaba/weex/https" />
-		<source-file src="src/android/com/alibaba/weex/https/WXHttpResponse.java" target-dir="src/com/alibaba/weex/https" />
-		<source-file src="src/android/com/alibaba/weex/https/WXHttpTask.java" target-dir="src/com/alibaba/weex/https" />
-		<source-file src="src/android/com/alibaba/weex/https/WXOkHttpDispatcher.java" target-dir="src/com/alibaba/weex/https" />
-		<source-file src="src/android/com/alibaba/weex/https/WXRequestListener.java" target-dir="src/com/alibaba/weex/https" />
-		<source-file src="src/android/com/alibaba/weex/commons/WXAnalyzerDelegate.java" target-dir="src/com/alibaba/weex/commons" /> -->
-
 		<source-file src="src/android/com/alibaba/weex/commons/adapter/BlurTool.java" target-dir="src/com/alibaba/weex/commons/adapter" />
 		<source-file src="src/android/com/alibaba/weex/commons/adapter/BlurTransformation.java" target-dir="src/com/alibaba/weex/commons/adapter" />
 		<source-file src="src/android/com/alibaba/weex/commons/adapter/ImageAdapter.java" target-dir="src/com/alibaba/weex/commons/adapter" />
@@ -69,10 +59,6 @@
         <framework src="com.squareup.picasso:picasso:2.5.2" />
         <framework src="com.squareup.okhttp:okhttp:2.3.0" />
         <framework src="com.squareup.okhttp:okhttp-ws:2.3.0" />
-        <!-- <framework src="com.facebook.fresco:fresco:0.12.0+" />
-        <framework src="com.facebook.fresco:animated-gif:0.12.0" /> -->
-        <!-- <framework src="com.alibaba.android:bindingx-core:1.1.1.2@aar" />
-        <framework src="com.alibaba.android:bindingx_weex_plugin:1.1.1@aar" /> -->
         <framework src="com.android.support:appcompat-v7:27.1.1" />
 	</platform>
 </plugin>
