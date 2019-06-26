@@ -13,6 +13,17 @@
 			</feature>
 		</config-file>
 		<source-file src="src/ios/ZenWeex.m" />
+		<source-file src="src/ios/JSValue+Weex.h" />
+		<source-file src="src/ios/JSValue+Weex.m" />
+		<source-file src="src/ios/WXBridgeMethod_Private.h" />
+		<source-file src="src/ios/WXModuleMethod_Private.h" />
+		<source-file src="src/ios/ZenViewController.h" />
+		<source-file src="src/ios/ZenViewController.m" />
+		<framework src="WeexSDK" type="podspec" />
+		<framework src="SDWebImage" type="podspec" spec="~> 3.8.0" />
+		<framework src="SocketRocket" type="podspec" spec="~> 0.5.1" />
+		<framework src="WeexPluginLoader" type="podspec" />
+		<framework src="WXDevtool" type="podspec" />
 	</platform>
 	<platform name="android">
 		<config-file parent="/*" target="res/xml/config.xml">
@@ -20,8 +31,48 @@
 				<param name="android-package" value="cordova.plugin.ZenWeex" />
 			</feature>
 		</config-file>
-		<config-file parent="/*" target="AndroidManifest.xml">
+		<config-file parent="/manifest/application" target="AndroidManifest.xml">
+			<activity
+					android:name="com.alibaba.weex.WXPageActivity"
+					android:label="@string/app_name"
+					android:screenOrientation="portrait"
+					android:theme="@style/AppTheme.NoActionBar">
+				<intent-filter>
+					<action android:name="com.taobao.android.intent.action.WEEX"/>
+					<category android:name="android.intent.category.DEFAULT"/>
+					<category android:name="com.taobao.android.intent.category.WEEX"/>
+					<action android:name="android.intent.action.VIEW"/>
+				</intent-filter>
+			</activity>
 		</config-file>
-		<source-file src="src/android/ZenWeex.java" target-dir="src/cordova/plugin/ZenWeex" />
+		<source-file src="src/android/res/layout/activity_wxpage.xml" target-dir="res/layout" />
+		<source-file src="src/android/ZenWeex.java" target-dir="src/cordova/plugin" />
+		<source-file src="src/android/com/alibaba/weex/WXPageActivity.java" target-dir="src/com/alibaba/weex" />
+
+		<!-- <source-file src="src/android/com/alibaba/weex/constants/Constants.java" target-dir="src/com/alibaba/weex/constants" />
+		<source-file src="src/android/com/alibaba/weex/https/HotRefreshManager.java" target-dir="src/com/alibaba/weex/https" />
+		<source-file src="src/android/com/alibaba/weex/https/WXHttpManager.java" target-dir="src/com/alibaba/weex/https" />
+		<source-file src="src/android/com/alibaba/weex/https/WXHttpResponse.java" target-dir="src/com/alibaba/weex/https" />
+		<source-file src="src/android/com/alibaba/weex/https/WXHttpTask.java" target-dir="src/com/alibaba/weex/https" />
+		<source-file src="src/android/com/alibaba/weex/https/WXOkHttpDispatcher.java" target-dir="src/com/alibaba/weex/https" />
+		<source-file src="src/android/com/alibaba/weex/https/WXRequestListener.java" target-dir="src/com/alibaba/weex/https" />
+		<source-file src="src/android/com/alibaba/weex/commons/WXAnalyzerDelegate.java" target-dir="src/com/alibaba/weex/commons" /> -->
+
+		<source-file src="src/android/com/alibaba/weex/commons/adapter/BlurTool.java" target-dir="src/com/alibaba/weex/commons/adapter" />
+		<source-file src="src/android/com/alibaba/weex/commons/adapter/BlurTransformation.java" target-dir="src/com/alibaba/weex/commons/adapter" />
+		<source-file src="src/android/com/alibaba/weex/commons/adapter/ImageAdapter.java" target-dir="src/com/alibaba/weex/commons/adapter" />
+		<source-file src="src/android/com/alibaba/weex/commons/adapter/JSExceptionAdapter.java" target-dir="src/com/alibaba/weex/commons/adapter" />
+
+        <framework src="com.taobao.android:weex_sdk:0.24.0@aar" />
+        <framework src="com.android.support:design:28.0.0" />
+        <framework src="com.alibaba:fastjson:1.1.46.android" />
+        <framework src="com.squareup.picasso:picasso:2.5.2" />
+        <framework src="com.squareup.okhttp:okhttp:2.3.0" />
+        <framework src="com.squareup.okhttp:okhttp-ws:2.3.0" />
+        <!-- <framework src="com.facebook.fresco:fresco:0.12.0+" />
+        <framework src="com.facebook.fresco:animated-gif:0.12.0" /> -->
+        <!-- <framework src="com.alibaba.android:bindingx-core:1.1.1.2@aar" />
+        <framework src="com.alibaba.android:bindingx_weex_plugin:1.1.1@aar" /> -->
+        <framework src="com.android.support:appcompat-v7:27.1.1" />
 	</platform>
 </plugin>
