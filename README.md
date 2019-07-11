@@ -1,3 +1,6 @@
+## Contact me
+
+禅师微信号: zencodex，可以聊(撩)
 
 ## Install plugin
 
