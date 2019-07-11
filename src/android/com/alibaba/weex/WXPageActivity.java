@@ -76,8 +76,13 @@ public class WXPageActivity extends AppCompatActivity implements IWXRenderListen
                 Log.e(this.getClass().getSimpleName(), e.toString());
             }
 
-            options.put(WXSDKInstance.BUNDLE_URL, uri.toString());
-            renderByUrl(uri.toString(), options);
+            String sUrl = uri.toString();
+            options.put(WXSDKInstance.BUNDLE_URL, sUrl);
+            if (sUrl.startsWith("file://")) {
+                render(sUrl, options);
+            } else {
+                renderByUrl(sUrl, options);
+            }
         }
     }
 

@@ -1,7 +1,7 @@
 {
   "name": "cordova-plugin-zenweex",
   "version": "0.1.2",
-  "description": "A cordova plugin to inject weex, so you could call weex.requireModule in js",
+  "description": "A cordova plugin to inject weex",
   "cordova": {
     "id": "cordova-plugin-zenweex",
     "platforms": [

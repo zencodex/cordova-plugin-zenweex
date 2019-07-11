@@ -1,3 +1,9 @@
+//
+//  ZenWeex.java Cordova Plugin android Implementation
+//
+//  Author: 扣丁禅师 <v@yinqisen.cn>
+//
+
 package cordova.plugin;
 
 import android.net.Uri;

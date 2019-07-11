@@ -1,5 +1,5 @@
 //
-//  ZenWeex.m Cordova Plugin Implementation
+//  ZenWeex.m Cordova Plugin iOS Implementation
 //
 //  Author: 扣丁禅师 <v@yinqisen.cn>
 //
