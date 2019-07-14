@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-zenweex",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "A cordova plugin to inject weex",
   "cordova": {
     "id": "cordova-plugin-zenweex",
