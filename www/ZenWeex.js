@@ -1,7 +1,6 @@
 // 插件注入脚本
 // Author: 扣丁禅师 <v@yinqisen.cn>
 
-var exec = require("cordova/exec");
 var callable = {
   navigator: {
     push: function(options) {

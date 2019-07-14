@@ -2,6 +2,8 @@
 
 禅师微信号: zencodex，可以聊(撩)
 
+> remove all native code, just install cordova plugin js-module. if you want native code, please checkout branch has-native. I think use native code in main project is more convenient.
+
 ## Install plugin
 
 ### For Cordova Project
