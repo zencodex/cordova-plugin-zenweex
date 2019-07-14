@@ -26,7 +26,7 @@ var router = weex.requireModule('navigator');         // It's OK
 //   url: weex 加载的地址，如果app安装包里的资源，可以使用 file:///
 //   orientation: landscape or portrait, default is portrait
 //   animated: true or false, default is true
-//   args: json object arguments passed to weex page, called by WXEnvironment
+//   args: json object arguments passed to weex page, called by weex.config.args 
 
 router.push({
     url: 'http://editor.weex.io/compiled/7bac45e9ed54b54bf9b42411183fe124/bundle.weex.js', 
